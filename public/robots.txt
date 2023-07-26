@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://aiedgemarketing.com
+
+# Sitemaps
+Sitemap: https://aiedgemarketing.com/sitemap.xml
