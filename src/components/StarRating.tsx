@@ -11,7 +11,9 @@ export default function StarRating ({ placeName }) {
       }
     );
     console.log('StarResponse', response);
-    const data = await response.json();
+    const data = await response.json().then((data) => {
+      return data;
+    });
     console.log('StarData', data);
     return data.candidates[0];
   };
