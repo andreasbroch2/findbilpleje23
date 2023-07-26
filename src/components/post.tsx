@@ -6,17 +6,6 @@ const Post = ({ post }) => {
 	console.log(post);
 	var servicearray = post.detailers.tjenester;
 	// Call Google Places API to get star rating of detailers location
-	const getStarRating = async (placeName) => {
-		// Make the request no cors
-		
-		const response = await fetch(`https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=${placeName}&inputtype=textquery&fields=rating%2Cname&key=${process.env.NEXT_PUBLIC_GOOGLE_PLACES_API_KEY}`, {
-			mode: 'no-cors',
-			
-			});
-		const data = await response.json();
-		const data2 = data;
-		return data2.candidates[0].rating + data2.canditates[0].name;
-	};
 
 	return (
 		<div className="flex place-content-between items-center p-4">
@@ -37,7 +26,7 @@ const Post = ({ post }) => {
 				{/* Loop through a custom field select type field with key value pairs */}
 
 				<div className="flex gap-2">
-					{Object.values(servicearray).map((service, index) => {
+					{Object.values(servicearray).map((service: string, index) => {
 						return (
 							<div key={`${index}` ?? ''} className="badge-secondary">
 								{/* Split the string after ': ' */}
