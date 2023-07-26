@@ -10,9 +10,7 @@ export default function NavigationMenu({ menuItems, textColor, column = false, h
     const menuRef = useRef(null);
     useEffect(() => {
       const handleClickOutside = (event) => {
-        console.log('isOpen: ', isOpen)
         if (isOpen && menuRef.current && !menuRef.current.contains(event.target)) {
-            console.log('click outside')
             onClose()
         }
       };
@@ -31,7 +29,6 @@ export default function NavigationMenu({ menuItems, textColor, column = false, h
     const hierarchicalMenuItems = flatListToHierarchical(menuItems?.edges);
 
     function renderMenu(items) {
-        console.log('items: ', items)
         return (
             <div className={`${hidden} ${isOpen ? 'open' : ''} bg-lightprimary z-50 mt-4 pb-4 md:p-4 lg:mt-0 lg:p-0 lg:bg-transparent lg:block menu-container`} ref={menuRef}>
                 <ul className={`menu lg:flex lg:-mx-4`}>

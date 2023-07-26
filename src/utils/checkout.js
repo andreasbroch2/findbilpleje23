@@ -66,7 +66,6 @@ export const handleStripeCheckout = async (input, products, setRequestError, cle
 
 
     if ( isEmpty( createCustomerOrder?.orderId ) || cartCleared?.error ) {
-        console.log( 'came in' );
         setRequestError('Clear cart failed')
     	return null;
     }

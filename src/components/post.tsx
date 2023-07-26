@@ -3,7 +3,6 @@ import Image from 'next/image';
 import StarRating from './StarRating';
 
 const Post = ({ post }) => {
-	console.log(post);
 	var servicearray = post?.detailers.tjenester;
 	// Call Google Places API to get star rating of detailers location
 

@@ -20,7 +20,6 @@ export default async function handler(req, res) {
       text: message,
     });
 
-    console.log('Message sent: %s', info.messageId);
 
     res.status(200).json({ message: 'Email sent successfully' });
   } catch (error) {

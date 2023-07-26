@@ -245,7 +245,6 @@ export const getFormattedCart = ( data ) => {
 };
 
 export const createCheckoutData = ( order ) => {
-	console.log('createCheckoutData', order)
 	// Set the billing Data to shipping, if applicable.
 	const billingData = order.billingDifferentThanShipping ? order.billing : order.shipping;
 

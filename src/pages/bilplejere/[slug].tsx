@@ -13,7 +13,6 @@ export default function Post({ product, preview, footerMenuItems, menuItems }) {
   const router = useRouter()
   const handleReadMoreClick = async (id, fieldName) => {
     const result = await addCountMutation(id, fieldName);
-    console.log(result);
   }
 
   if (!router.isFallback && !product?.slug) {
