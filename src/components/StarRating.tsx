@@ -1,7 +1,15 @@
 // Generate a star rating component using Google Places API and place name as props
 export default function StarRating ({ placeName }) {
   const getStarRating = async (placeName) => {
-    const response = await fetch(`https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=${placeName}&inputtype=textquery&fields=rating%2Cname&key=${process.env.NEXT_PUBLIC_GOOGLE_PLACES_API_KEY}`);
+    const response = await fetch(`https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=${placeName}&inputtype=textquery&fields=rating%2Cname&key=${process.env.NEXT_PUBLIC_GOOGLE_PLACES_API_KEY}`,
+      {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        mode: 'no-cors'
+      }
+    );
     const data = await response.json();
     return data.candidates[0];
   };
