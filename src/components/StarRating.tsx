@@ -7,7 +7,6 @@ export default function StarRating ({ placeName }) {
         headers: {
           'Content-Type': 'application/json',
         },
-        mode: 'no-cors',
       }
     );
     console.log('StarResponse', response);
