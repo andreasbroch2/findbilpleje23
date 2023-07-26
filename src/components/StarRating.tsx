@@ -7,9 +7,10 @@ export default function StarRating ({ placeName }) {
         headers: {
           'Content-Type': 'application/json',
         },
-        mode: 'no-cors'
+        mode: 'no-cors',
       }
     );
+    console.log('StarResponse', response);
     const data = await response.json();
     console.log('StarData', data);
     return data.candidates[0];
