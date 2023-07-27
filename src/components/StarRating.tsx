@@ -1,30 +1,24 @@
 // Generate a star rating component using Google Places API and place name as props
+// Use npm dependency cors to allow cross origin requests
+
 export default function StarRating ({ placeName }) {
+
+
   const getStarRating = async (placeName) => {
-    console.log('StarRequest', `https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=${placeName}&inputtype=textquery&fields=rating%2Cname&key=${process.env.NEXT_PUBLIC_GOOGLE_PLACES_API_KEY}`);
-    const response = await fetch(`https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=${placeName}&inputtype=textquery&fields=rating%2Cname&key=${process.env.NEXT_PUBLIC_GOOGLE_PLACES_API_KEY}`,
-      {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-          'access-control-allow-origin': '*',
-        },
-      }
-    );
-    console.log('StarResponse', response);
-    const data = await response.json().then((data) => {
-      console.log('StarData', data);
-      return data;
-    });
-    console.log('StarData', data);
-    return data.candidates[0];
+    var requestOptions = {
+      method: 'GET',
+      redirect: 'follow'
+    };
+    
+    var data = await fetch("https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=PD Bilpleje&inputtype=textquery&fields=rating%2Cname%2Cformatted_address%2Cuser_ratings_total&key=AIzaSyBGPS-pbI1-xxJCWzEyKhwD6DFRJldwMHg", requestOptions)
+      .then(response => response.text())
+      .then(result => console.log(result))
+      .catch(error => console.log('error', error));
+
+    return data;
   };
   var name = '';
   var rating = 0;
-  getStarRating(placeName).then((data) => {
-    name = data.name;
-    rating = data.rating;
-    });
   return (
     <div>
         <div>
